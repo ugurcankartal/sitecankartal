@@ -49,7 +49,7 @@ chmod +x *.sh
 ./install-dependencies.sh
 ```
 
-`backend/.env` dosyasını oluşturun:
+`backend/.env` dosyasını oluşturun (`cp backend/.env.example backend/.env`). Bu dosya Git'e eklenmez; sunucuda elle düzenlenir. `DJANGO_SETTINGS_MODULE` yazmayın — Gunicorn production ayarlarını otomatik kullanır.
 
 ```env
 dev_DJANGO_DEBUG=False
