@@ -1,0 +1,16 @@
+[Unit]
+Description=Personal Portfolio Django API (Gunicorn)
+After=network.target mysql.service
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/projectcankartal/backend
+Environment="DJANGO_SETTINGS_MODULE=portfolio.settings.prod"
+EnvironmentFile=/home/ubuntu/projectcankartal/backend/.env
+ExecStart=/home/ubuntu/projectcankartal/backend/venv/bin/python /home/ubuntu/projectcankartal/backend/run_gunicorn.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

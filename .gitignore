@@ -1,0 +1,44 @@
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+dist/
+build/
+staticfiles/
+*.log
+db.sqlite3
+
+# Node / Frontend
+node_modules/
+Frontend/dist/
+.pnpm-store/
+
+# Uploads (user media)
+backend/static/uploads/
+backend-flask/static/uploads/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# Flask legacy
+instance/
+.webassets-cache/

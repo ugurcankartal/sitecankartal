@@ -1,0 +1,79 @@
+@layer theme {
+  :root {
+    /* Base colors */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    /* Card colors */
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover colors */
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary colors - Cyan accent */
+    --primary: 188 94% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary colors - Purple accent */
+    --secondary: 262 83% 58%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted colors */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent colors */
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border and input */
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 188 94% 43%;
+
+    /* Chart colors */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Radius */
+    --radius: 0.5rem;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(2 6 23);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(6 182 212), rgb(168 85 247));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgb(6 182 212 / 0.8), rgb(168 85 247 / 0.8));
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection colors */
+::selection {
+  background: rgba(6, 182, 212, 0.3);
+  color: rgb(255 255 255);
+}
