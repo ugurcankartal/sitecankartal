@@ -52,7 +52,7 @@ echo ""
 echo -e "${YELLOW}Test ediliyor...${NC}"
 export DJANGO_SETTINGS_MODULE=portfolio.settings.prod
 python -c "import django; print('✓ Django OK')" && echo -e "${GREEN}Django başarıyla import edildi!${NC}" || echo -e "${RED}Django import hatası!${NC}"
-python -c "import os; os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings.prod'); import portfolio.wsgi; print('✓ WSGI OK')" && echo -e "${GREEN}WSGI entry point OK!${NC}" || echo -e "${RED}WSGI import hatası!${NC}"
+python -c "import portfolio.wsgi; import django; django.setup(); from django.conf import settings; assert settings.SETTINGS_MODULE == 'portfolio.settings.prod'; print('✓ WSGI OK (prod)')" && echo -e "${GREEN}WSGI entry point OK!${NC}" || echo -e "${RED}WSGI import hatası!${NC}"
 python manage.py check && echo -e "${GREEN}manage.py check OK!${NC}" || echo -e "${RED}manage.py check hatası!${NC}"
 
 deactivate

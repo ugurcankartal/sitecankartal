@@ -7,8 +7,9 @@ Usage:
 """
 import os
 
-from django.core.wsgi import get_wsgi_application
+# Always use production settings under Gunicorn (ignore .env DJANGO_SETTINGS_MODULE).
+os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings.prod'
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings.prod')
+from django.core.wsgi import get_wsgi_application
 
 application = get_wsgi_application()

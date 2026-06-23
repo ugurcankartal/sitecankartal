@@ -4,10 +4,11 @@ import os
 import subprocess
 import sys
 
+# Always use production settings under Gunicorn (ignore .env DJANGO_SETTINGS_MODULE).
+os.environ['DJANGO_SETTINGS_MODULE'] = 'portfolio.settings.prod'
+
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'portfolio.settings.prod')
-
     import django
 
     django.setup()
