@@ -52,8 +52,9 @@ chmod +x *.sh
 `backend/.env` dosyasını oluşturun:
 
 ```env
-DJANGO_SETTINGS_MODULE=portfolio.settings.prod
-DJANGO_DEBUG=False
+dev_DJANGO_DEBUG=False
+prod_DJANGO_DEBUG=False
+prod_ALLOWED_HOSTS=cankartal.com,www.cankartal.com
 
 # Development DB (local only)
 dev_MYSQL_HOST=127.0.0.1

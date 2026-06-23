@@ -76,8 +76,8 @@ Group=ubuntu
 WorkingDirectory=$PROJECT_DIR/backend
 Environment="PATH=$VENV_DIR/bin"
 Environment="PYTHONUNBUFFERED=1"
-Environment="DJANGO_SETTINGS_MODULE=portfolio.settings.prod"
 EnvironmentFile=-$PROJECT_DIR/backend/.env
+Environment="DJANGO_SETTINGS_MODULE=portfolio.settings.prod"
 ExecStart=$VENV_DIR/bin/python $PROJECT_DIR/backend/run_gunicorn.py
 Restart=always
 RestartSec=10

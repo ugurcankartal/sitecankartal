@@ -8,12 +8,12 @@ DATABASES = {
     'default': env_db_config('prod'),  # noqa: F405
 }
 
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False').lower() == 'true'  # noqa: F405
+DEBUG = os.environ.get('prod_DJANGO_DEBUG', 'False').lower() == 'true'  # noqa: F405
 
 ALLOWED_HOSTS = [
     host.strip()
     for host in os.environ.get(  # noqa: F405
-        'ALLOWED_HOSTS',
+        'prod_ALLOWED_HOSTS',
         'cankartal.com,www.cankartal.com',
     ).split(',')
     if host.strip()
