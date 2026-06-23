@@ -5,6 +5,10 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
+
 echo "=== Systemd Service Kurulum Scripti ==="
 echo ""
 
@@ -14,7 +18,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
-PROJECT_DIR="/home/ubuntu/projectcankartal"
+VENV_DIR="$PROJECT_DIR/backend/venv"
 SERVICE_NAME="cankartal-backend"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 

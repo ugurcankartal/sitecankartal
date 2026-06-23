@@ -14,13 +14,15 @@ Bu rehber, cankartal.com projesini Ubuntu sunucusunda **Django REST API + Gunico
 ## Proje Yapısı
 
 ```
-/home/ubuntu/projectcankartal/
+/home/ubuntu/sitecankartal/sitecankartal/
 ├── backend/          # Django REST API (production)
 ├── backend-flask/    # Legacy Flask (kullanılmıyor)
 ├── Frontend/         # React frontend
 ├── nginx/            # Nginx konfigürasyonları
 └── deployment/       # Deployment scriptleri
 ```
+
+Tüm deployment scriptleri `deployment/config.sh` içindeki `PROJECT_DIR` değerini kullanır. Sunucu yolu değişirse yalnızca bu dosyayı düzenleyin.
 
 ## Sunucuda İlk Kurulum
 
@@ -42,7 +44,7 @@ EXIT;
 ### 3. Backend (Django)
 
 ```bash
-cd /home/ubuntu/projectcankartal/deployment
+cd /home/ubuntu/sitecankartal/sitecankartal/deployment
 chmod +x *.sh
 ./install-dependencies.sh
 ```
@@ -98,7 +100,7 @@ Service şunları çalıştırır:
 ### 5. Frontend build
 
 ```bash
-cd /home/ubuntu/projectcankartal/Frontend
+cd /home/ubuntu/sitecankartal/sitecankartal/Frontend
 npm install
 npm run build
 ```
@@ -131,7 +133,7 @@ API base URL production'da `/api/v1` (nginx proxy).
 sudo systemctl stop cankartal-backend
 
 # 2. Kodu güncelle (git pull / dosya kopyala)
-cd /home/ubuntu/projectcankartal
+cd /home/ubuntu/sitecankartal/sitecankartal
 
 # 3. Django bağımlılıkları
 ./deployment/install-dependencies.sh
@@ -181,14 +183,14 @@ sudo journalctl -u cankartal-backend -f
 
 ```bash
 # prod_port değerini .env'den kontrol edin
-grep prod_port /home/ubuntu/projectcankartal/backend/.env
+grep prod_port /home/ubuntu/sitecankartal/sitecankartal/backend/.env
 sudo lsof -i :59254
 ```
 
 ### WSGI test
 
 ```bash
-cd /home/ubuntu/projectcankartal/backend
+cd /home/ubuntu/sitecankartal/sitecankartal/backend
 source venv/bin/activate
 export DJANGO_SETTINGS_MODULE=portfolio.settings.prod
 python manage.py check
@@ -198,7 +200,7 @@ python run_gunicorn.py
 ## Güncelleme
 
 ```bash
-cd /home/ubuntu/projectcankartal/backend
+cd /home/ubuntu/sitecankartal/sitecankartal/backend
 source venv/bin/activate
 git pull
 pip install -r requirements.txt
@@ -207,7 +209,7 @@ sudo systemctl restart cankartal-backend
 ```
 
 ```bash
-cd /home/ubuntu/projectcankartal/Frontend
+cd /home/ubuntu/sitecankartal/sitecankartal/Frontend
 npm install && npm run build
 sudo systemctl reload nginx
 ```

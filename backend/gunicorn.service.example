@@ -5,10 +5,10 @@ After=network.target mysql.service
 [Service]
 User=ubuntu
 Group=ubuntu
-WorkingDirectory=/home/ubuntu/projectcankartal/backend
+WorkingDirectory=/home/ubuntu/sitecankartal/sitecankartal/backend
 Environment="DJANGO_SETTINGS_MODULE=portfolio.settings.prod"
-EnvironmentFile=/home/ubuntu/projectcankartal/backend/.env
-ExecStart=/home/ubuntu/projectcankartal/backend/venv/bin/python /home/ubuntu/projectcankartal/backend/run_gunicorn.py
+EnvironmentFile=/home/ubuntu/sitecankartal/sitecankartal/backend/.env
+ExecStart=/home/ubuntu/sitecankartal/sitecankartal/backend/venv/bin/python /home/ubuntu/sitecankartal/sitecankartal/backend/run_gunicorn.py
 Restart=always
 RestartSec=5
 

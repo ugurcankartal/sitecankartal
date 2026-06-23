@@ -36,7 +36,9 @@ fi
 
 # 3. Nginx konfigürasyon dosyasını kopyalama
 echo -e "${YELLOW}[3/6] Nginx konfigürasyon dosyası kopyalanıyor...${NC}"
-PROJECT_DIR="/home/ubuntu/projectcankartal"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
 NGINX_CONF="$PROJECT_DIR/nginx/cankartal.com.conf"
 NGINX_SITES="/etc/nginx/sites-available"
 NGINX_ENABLED="/etc/nginx/sites-enabled"

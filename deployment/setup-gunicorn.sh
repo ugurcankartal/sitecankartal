@@ -5,6 +5,10 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
+
 echo "=== Django Gunicorn Kurulumu ==="
 echo ""
 
@@ -13,7 +17,6 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-PROJECT_DIR="/home/ubuntu/projectcankartal"
 VENV_DIR="$PROJECT_DIR/backend/venv"
 SERVICE_FILE="/etc/systemd/system/cankartal-backend.service"
 ENV_FILE="$PROJECT_DIR/backend/.env"

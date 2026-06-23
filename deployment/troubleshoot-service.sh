@@ -4,8 +4,11 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
+
 SERVICE_NAME="cankartal-backend"
-PROJECT_DIR="/home/ubuntu/projectcankartal"
 VENV_DIR="$PROJECT_DIR/backend/venv"
 ENV_FILE="$PROJECT_DIR/backend/.env"
 

@@ -4,7 +4,10 @@
 
 set -e
 
-PROJECT_DIR="/home/ubuntu/projectcankartal"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
+
 FRONTEND_DIR="$PROJECT_DIR/Frontend"
 
 echo "=== Frontend İzin Sorunları Düzeltiliyor ==="

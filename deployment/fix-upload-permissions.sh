@@ -5,6 +5,10 @@
 
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# shellcheck source=config.sh
+source "$SCRIPT_DIR/config.sh"
+
 echo "=== Upload Dizin İzinlerini Düzeltme ==="
 echo ""
 
@@ -14,7 +18,6 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-PROJECT_DIR="/home/ubuntu/projectcankartal"
 UPLOAD_DIR="$PROJECT_DIR/backend/static/uploads"
 PROFILES_DIR="$UPLOAD_DIR/profiles"
 
