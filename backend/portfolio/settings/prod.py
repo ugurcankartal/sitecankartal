@@ -19,6 +19,11 @@ ALLOWED_HOSTS = [
     if host.strip()
 ]
 
+# Gunicorn binds to 127.0.0.1; allow direct local health checks without a custom Host header.
+for internal_host in ('127.0.0.1', 'localhost'):
+    if internal_host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(internal_host)
+
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 

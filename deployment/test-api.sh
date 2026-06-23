@@ -20,12 +20,12 @@ echo "Production port (prod_port): $PROD_PORT"
 echo ""
 
 echo "1. Health check (localhost:${PROD_PORT}):"
-curl -s "http://127.0.0.1:${PROD_PORT}/api/v1/health"
+curl -s -H "Host: cankartal.com" "http://127.0.0.1:${PROD_PORT}/api/v1/health"
 echo ""
 echo ""
 
 echo "2. Blog API (localhost:${PROD_PORT}):"
-curl -s "http://127.0.0.1:${PROD_PORT}/api/v1/blog?per_page=5" | head -20
+curl -s -H "Host: cankartal.com" "http://127.0.0.1:${PROD_PORT}/api/v1/blog?per_page=5" | head -20
 echo ""
 echo ""
 
