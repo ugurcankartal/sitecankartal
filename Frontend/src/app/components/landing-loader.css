@@ -1,0 +1,133 @@
+.landing-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #050508;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-loader__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.landing-loader__vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    transparent 30%,
+    rgba(5, 5, 8, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+.landing-loader__ui {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  padding: 2rem;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.landing-loader__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+
+.landing-loader__brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #7cf4c4;
+  box-shadow: 0 0 12px #7cf4c4;
+  animation: landing-loader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes landing-loader-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.85);
+  }
+}
+
+.landing-loader__brand-text {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.55em;
+  text-indent: 0.55em;
+  color: rgba(244, 242, 239, 0.5);
+}
+
+.landing-loader__counter {
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 1rem;
+  color: #f4f2ef;
+}
+
+.landing-loader__counter-unit {
+  font-size: 0.35em;
+  color: rgba(124, 244, 196, 0.35);
+  margin-left: 0.1em;
+}
+
+.landing-loader__status {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(244, 242, 239, 0.4);
+  margin-bottom: 2rem;
+  min-height: 1.2em;
+}
+
+.landing-loader__bar {
+  width: min(240px, 60vw);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.landing-loader__bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, transparent, #7cf4c4, transparent);
+  box-shadow: 0 0 20px rgba(124, 244, 196, 0.35);
+}
+
+.landing-site {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.landing-loading {
+  overflow: hidden;
+}
+
+body.landing-ready {
+  overflow: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-loader__brand-dot {
+    animation: none;
+  }
+}

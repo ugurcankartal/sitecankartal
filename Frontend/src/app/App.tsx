@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router";
 import { Navigation } from "./components/navigation";
 import { HeroSection } from "./components/hero-section";
@@ -7,6 +7,7 @@ import { ProjectsSection } from "./components/projects-section";
 import { BlogSection } from "./components/blog-section";
 import { ContactSection } from "./components/contact-section";
 import { Footer } from "./components/footer";
+import { LandingLoader } from "./components/landing-loader";
 import { BlogListPage } from "./pages/blog-list-page";
 import { NotFoundPage } from "./pages/not-found-page";
 import { ErrorPage } from "./pages/error-page";
@@ -14,6 +15,9 @@ import { ErrorPage } from "./pages/error-page";
 function HomePage() {
   const location = useLocation();
   const scrollTo = (location.state as { scrollTo?: string })?.scrollTo;
+  const siteRef = useRef<HTMLDivElement>(null);
+  const [loaderDone, setLoaderDone] = useState(false);
+  const handleLoaderComplete = useCallback(() => setLoaderDone(true), []);
 
   useEffect(() => {
     if (scrollTo) {
@@ -99,17 +103,26 @@ function HomePage() {
   }, [scrollTo, location.pathname]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white overflow-x-hidden">
-      <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <BlogSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      {!loaderDone && (
+        <LandingLoader siteRef={siteRef} onComplete={handleLoaderComplete} />
+      )}
+      <div ref={siteRef} className="landing-site min-h-screen bg-slate-950 text-white overflow-x-hidden">
+        <div data-landing-reveal>
+          <Navigation />
+        </div>
+        <main>
+          <div data-landing-reveal>
+            <HeroSection />
+          </div>
+          <AboutSection />
+          <ProjectsSection />
+          <BlogSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
 

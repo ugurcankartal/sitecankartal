@@ -32,13 +32,11 @@ export function HeroSection() {
 
   if (loading || (!profile && !userInfo)) {
     return (
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950"
+      >
         <ParticleBackground />
-        <div className="relative z-10 container mx-auto px-6 py-20">
-          <div className="max-w-5xl mx-auto text-center">
-            <div className="text-slate-400">Loading...</div>
-          </div>
-        </div>
       </section>
     );
   }
@@ -81,7 +79,10 @@ export function HeroSection() {
     : [];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950/20 to-slate-950"
+    >
       {/* Animated Background */}
       <ParticleBackground />
       
